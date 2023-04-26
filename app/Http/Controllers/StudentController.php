@@ -6,6 +6,7 @@ use App\Models\StudentCareer;
 use App\Models\StudentCourse;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 
 /**
  * Class StudentController
@@ -32,6 +33,19 @@ class StudentController extends Controller
         }
 
         return $student_data;
+    }
+
+    public function validate_email(Request $request)
+    {
+        $student = User::where('email', $request->email)
+            ->firstOrFail();
+
+        if ($student->role != '2')
+        {
+            abort(404);
+        }
+
+        return $student;
     }
 
     /**

@@ -23,8 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/data', [InfoDataController::class, 'index']);
-Route::get('/students/{student}', [StudentController::class, 'show']);
 Route::get('/students/{student}/courses', [StudentCourseController::class, 'show']);
 Route::get('/students/{student}/careers', [StudentCourseController::class, 'show']);
 Route::get('/students/{student}/data', [StudentController::class, 'data']);
+Route::get('/students/{student}', [StudentController::class, 'show']);
+Route::post('/students', [StudentController::class, 'validate_email']);
 Route::get('/career', [CareerController::class, 'index']);

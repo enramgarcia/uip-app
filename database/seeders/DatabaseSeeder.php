@@ -117,6 +117,8 @@ class DatabaseSeeder extends Seeder
                     "last_name" => "García",
                     "email" => "egarcia@domain.com",
                     "phone" => "+507 4213-9909",
+                    "owes" => 700,
+                    "installments_left" => 2,
                     "graduated" => false,
                     "is_active" => true
                 ],
@@ -126,6 +128,8 @@ class DatabaseSeeder extends Seeder
                     "last_name" => "Doe",
                     "email" => "j.doe@domain.com",
                     "phone" => "+507 1239-8493",
+                    "owes" => 0,
+                    "installments_left" => 0,
                     "graduated" => true,
                     "is_active" => false
                 ],
@@ -135,6 +139,8 @@ class DatabaseSeeder extends Seeder
                     "last_name" => "Doe",
                     "email" => "jane.doe@domain.com",
                     "phone" => "+507 129-4138",
+                    "owes" => 300,
+                    "installments_left" => 1,
                     "graduated" => false,
                     "is_active" => true
                 ]
@@ -481,6 +487,8 @@ class DatabaseSeeder extends Seeder
                 'role' => '2',
                 'email' => $student['email'],
                 'password' => Hash::make('secret'),
+                "owes" => $student['owes'],
+                "installments_left" => $student['installments_left'],
             ]);
         }
 
